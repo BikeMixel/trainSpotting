@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Spotter</title>
+    <!-- Bootstrap --> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+                        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- css --> <link rel="stylesheet" type="text/CSS" href="assets/css/style.css">
+</head>
+<body>
+    <!-- container --> 
+        <!-- jumbotron -->
+    <div class="jumbotron text-center bg-info text-white">
+        <img src="assets/images/steamHeader.png">
+            <h1>Train Spotter</h1>
+            <h2>Spot the most the 19th century's most popular mode of travel!</h2>
+    </div>
+    <br>
+    <div class="container">
+        <!-- table with dynamic data -->
+        <div class="card">
+        <!-- table card tite -->
+            <h3 class="text-center bg-info text-white">Your Trains Spotted!</h3>
+            <table class="table text-center">
+                <thead>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+                </thead>
+                <tbody id = "tableBody">
+                    <!-- <tr>
+                        <td>Sample 1</td>
+                        <td>Sample 2</td>
+                        <td>Sample 3</td>
+                        <td>Sample 4</td>
+                        <td>Sample 5</td>
+                    </tr>
+                    <tr>
+                        <td>Test 1</td>
+                        <td>Test 2</td>
+                        <td>Test 3</td>
+                        <td>Test 4</td>
+                        <td>Test 5</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <br>  
+        <!-- input form -->
+        <div class="card">
+        <!-- input card title -->
+            <h3 class="text-center bg-info text-white">Add a Train to Spot!</h3>
+            <div class="container">
+                <form class="form-group">
+                    <label for="trainName">Train Name</label>
+                    <input type="trainName" class="form-control" id="trainName" placeholder="Trans-Siberian Express">
+                    <div class="form-group">
+                    <label for="trainDest">Destination</label>
+                    <input  class="form-control" id="trainDest" placeholder="Cleveland">
+                    </div>
+                    <div class="form-group">
+                    <label for="trainFreq">Frequency</label>
+                    <input type="??" class="form-control" id="trainFreq" placeholder="Hold off on this one... ">
+                    </div>
+                    <div class="form-group">
+                    <label for="trainNext">First Train Time (HH:mm aka Military Time)</label>
+                    <input  class="form-control" id="trainNext" placeholder="18:00">
+                    </div>
+                    <button type="submit" id='frmSubmit' class="btn btn-info">Submit</button>
+                </form>
+            </div>
+        </div>
+    <!-- / container -->
+    </div>
+    <br>
+    <br>
+    <footer>
+    </footer>
+
+<!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+        <script>
+            var config = {
+            apiKey: "AIzaSyDQYQhlFsRqgAI6a29dObfq66tu0bwxjig",
+            authDomain: "trainspotter-c3bb4.firebaseapp.com",
+            databaseURL: "https://trainspotter-c3bb4.firebaseio.com",
+            projectId: "trainspotter-c3bb4",
+            storageBucket: "",
+            messagingSenderId: "918886405021"
+            };
+            firebase.initializeApp(config);
+        </script>
+<!-- jQuery --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<!-- moment --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script> 
+<!-- vanilla --> 
+    <script src="assets/javascript/app.js"></script>
+</body>
+</html>
