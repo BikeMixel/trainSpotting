@@ -1,5 +1,5 @@
 // firebase 
-    var database = firebase.database()
+var database = firebase.database()
 
 // submit fun
 $("#frmSubmit").on("click", function(event){
