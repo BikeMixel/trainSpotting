@@ -1,5 +1,7 @@
 // firebase 
 var database = firebase.database()
+var time = moment().format("HH:mm")
+console.log(time)
 // submit fun
 
 $("#frmSubmit").on("click", function (event) {
@@ -17,24 +19,34 @@ $("#frmSubmit").on("click", function (event) {
 
 var time = moment().format("HH:mm")
 console.log(time)
+var frequency = moment().minutes(freq, "mm")
+console.log("freq " + frequency)
 var startTime = moment(start, "HH:mm").format("HH:mm")
 console.log("startTime " + startTime)
 var difference = moment().diff(moment(startTime, "HH:mm"), "minutes")
 console.log("difference " + difference)
-var minLeft = difference % freq
-console.log("minLeft " + minLeft)
+var leftOver = difference % freq
+console.log("leftOver " + leftOver)
+var arrival = freq - leftOver
+console.log("arrival " + arrival)
+var next = moment().add(arrival, "minutes")
+console.log("next " + next)
+var nextFormat = moment(next, "HH:mm").format("HH:mm")
+console.log("next " + nextFormat)
 
     database.ref().push({
         userName: name,
         userDest: dest,
         userFreq: freq,
-        userNext: start,
-        minLeft: minLeft
+        userStart: start,
+        arrival: arrival,
+        next: nextFormat
     })
 })
 
 database.ref().orderByChild("dateAdded").on("child_added", function (snapshot) {
     populate(snapshot.val())
+
 })
 
 // append data to table from firebase, create new <td>s 
@@ -49,19 +61,8 @@ var populate = function (output) {
     addData(output.userName, newRow)
     addData(output.userDest, newRow)
     addData(output.userFreq, newRow)
-    addData("Sasdfas", newRow)
-    addData(output.minLeft, newRow)
+    addData(output.next, newRow)
+    addData(output.arrival, newRow)
     $(newRow).appendTo($("#tableBody"))
 }
-
-// use moment for time calc.. 2-3 fns max
-
-
-// var startTest = 2200
-// var time = moment().format("HH:mm")
-// console.log(time)
-// var startTime = moment(startTest, "HH:mm").format("HH:mm")
-// console.log("startTime " + startTime)
-// var difference = moment().diff((startTime), "minutes") % userFreq.freq
-// console.log("difference " + difference)
 
