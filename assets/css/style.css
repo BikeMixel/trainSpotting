@@ -15,10 +15,10 @@ body{
         font-size: 12px;
         line-height: 24px;
     }
-    /* .container{
-        padding-left: 1px;
-        padding-right: 1px;
-    } */
+    .container{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     th{
         white-space: normal;
     }
