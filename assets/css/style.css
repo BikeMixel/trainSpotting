@@ -1,5 +1,26 @@
 body{
-    background-image: url("../images/bg4.jpg");
+    background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+@media screen and (max-width: 640px){
+    body{
+    background-image: url("../images/bg-mobile.jpg")
+    }
+    #headImage{
+        height: 150px;
+        width: 350px;
+    }
+    .addTitles{
+        font-size: 12px;
+        line-height: 24px;
+    }
+    .container{
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+    th{
+        white-space: normal;
+    }
+
 }
