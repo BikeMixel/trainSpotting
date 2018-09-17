@@ -24,21 +24,19 @@ $("#frmSubmit").on("click", function(event) {
   $("#trainStart").val("");
 
   var time = moment().format("HH:mm");
-  console.log(time);
-  var frequency = moment().minutes(freq, "mm");
-  console.log("freq " + frequency);
+  console.log("time " + time)
   var startTime = moment(start, "HH:mm").format("HH:mm");
-  console.log("startTime " + startTime);
+  console.log("start " + startTime)
   var difference = moment().diff(moment(startTime, "HH:mm"), "minutes");
-  console.log("difference " + difference);
+  console.log("diff " + difference)
   var leftOver = difference % freq;
-  console.log("leftOver " + leftOver);
+  console.log("leftOver " + leftOver)
   var arrival = freq - leftOver;
-  console.log("arrival " + arrival);
+  console.log("arrival " + arrival)
   var next = moment().add(arrival, "minutes");
-  console.log("next " + next);
+  console.log("next " + next)
   var nextFormat = moment(next, "HH:mm").format("HH:mm");
-  console.log("next " + nextFormat);
+  console.log(nextFormat)
 
   database.ref().push({
     userName: name,
@@ -46,15 +44,11 @@ $("#frmSubmit").on("click", function(event) {
     userFreq: freq,
     userStart: start,
     arrival: arrival,
-    next: nextFormat,
-    time: time
+    next: nextFormat
   });
 });
 
-database
-  .ref()
-  .orderByChild("dateAdded")
-  .on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     populate(snapshot.val());
   });
 
@@ -74,3 +68,4 @@ var populate = function(output) {
   addData(output.arrival, newRow);
   $(newRow).appendTo($("#tableBody"));
 };
+
