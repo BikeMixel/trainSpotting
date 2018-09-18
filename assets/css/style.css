@@ -13,14 +13,17 @@ body{
     }
     .addTitles{
         font-size: 12px;
-        line-height: 24px;
+        line-height: 18px;
     }
     .container{
         padding-left: 0px;
         padding-right: 0px;
     }
-    th{
+    th,
+    td{
         white-space: normal;
+        font-size: 10px;
+        line-height: 18px;
     }
 
 }
