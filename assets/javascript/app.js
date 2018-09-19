@@ -1,7 +1,6 @@
-// firebase
+
 var database = firebase.database();
 
-// submit fun
 $("#frmSubmit").on("click", function(event) {
   event.preventDefault();
 
@@ -24,19 +23,12 @@ $("#frmSubmit").on("click", function(event) {
   $("#trainStart").val("");
 
   var time = moment().format("HH:mm");
-  console.log("time " + time)
   var startTime = moment(start, "HH:mm").format("HH:mm");
-  console.log("start " + startTime)
   var difference = moment().diff(moment(startTime, "HH:mm"), "minutes");
-  console.log("diff " + difference)
   var leftOver = difference % freq;
-  console.log("leftOver " + leftOver)
   var arrival = freq - leftOver;
-  console.log("arrival " + arrival)
   var next = moment().add(arrival, "minutes");
-  console.log("next " + next)
   var nextFormat = moment(next, "HH:mm").format("HH:mm");
-  console.log(nextFormat)
 
   database.ref().push({
     userName: name,
@@ -52,7 +44,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     populate(snapshot.val());
   });
 
-// append data to table from firebase, create new <td>s
 var addData = function(input, target) {
   var newTD = $("<td>");
   $(newTD).text(input);
